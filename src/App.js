@@ -6,12 +6,20 @@ import DyAside from './components/aside';
 import { menus } from './router';
 import { HashRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config/cjs/react-router-config';
-
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const { Content, Footer } = Layout;
 
 const App = () => {
 
+  useEffect(()=>{
+    axios.get("/api/test").then(res=>{
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
+  })
   return (
     <HashRouter>
       <Layout
