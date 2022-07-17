@@ -4,16 +4,17 @@ import './index.scss';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
-import request from './service';
+// import service from './service';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
-);
-// request({ method: "get", url: "/test" }).then(res=>{
-//   console.log(res,'rr');
-// })
 
+    <App />
+
+);
+// service.get({
+//     url: '/test'
+// })
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

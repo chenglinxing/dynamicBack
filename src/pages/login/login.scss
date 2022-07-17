@@ -1,0 +1,30 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .formContainer {
+        width: 500px;
+        height: 300px;
+        border-radius: 5px;
+        margin-bottom: 150px;
+        background: #8f8f8f;
+        // border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        form{
+            width: 100%;
+        }
+    }
+    .ant-form-item-control-input-content{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .login-form-button{
+        width: 100%;
+    }
+    
+}

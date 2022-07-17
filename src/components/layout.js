@@ -1,59 +1,53 @@
-import React, { Component } from 'react'
-import { Breadcrumb, Layout } from 'antd';
-import { Outlet } from 'react-router';
+import React from 'react'
 
-import { menus } from '../router';
-import DyHeader from './components/header';
-import DyAside from './components/aside';
-import { renderRoutes } from 'react-router-config/cjs/react-router-config.min';
+import { Switch, Route, Redirect } from "react-router-dom"
+
+import { Layout } from 'antd';
+import DyHeader from './header';
+import DyAside from './aside';
+
+import Home from '../pages/home'
+import DynamicManage from "@/pages/dynamicManage/index"
+import NoPromission from '@/pages/no-promission'
+import UserInfo from "@/pages/userInfo/userInfo"
 
 
 const { Content, Footer } = Layout;
-export default class layout extends Component {
-    render() {
-        return (
-            <Layout
-                style={{
-                    minHeight: '100vh',
-                }}
-            >
-                {/* 菜单栏 */}
-                <DyAside />
-                <Layout className="site-layout">
-                    {/* 头部内容 */}
-                    <DyHeader />
-                    <Content
-                        style={{
-                            margin: '0 16px',
-                        }}
-                    >
-                        <Breadcrumb
-                            style={{
-                                margin: '16px 0',
-                            }}
-                        >
-                            <Breadcrumb.Item>User</Breadcrumb.Item>
-                            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                        </Breadcrumb>
-                        <div
-                            className="site-layout-background"
-                            style={{
-                                padding: 24,
-                                minHeight: 360,
-                            }}
-                        >
-                            {renderRoutes(menus)}
-                        </div>
-                    </Content>
-                    <Footer
-                        style={{
-                            textAlign: 'center',
-                        }}
-                    >
-                        Ant Design ©2018 Created by Ant UED
-                    </Footer>
-                </Layout>
+export default function DyLayout() {
+
+    return (
+        <Layout style={{ minHeight: '100vh', }}>
+            {/* 菜单栏 */}
+            <DyAside />
+            <Layout className="site-layout">
+                {/* 头部内容 */}
+                <DyHeader />
+                <Content
+                    style={{
+                       background:"#fff",
+                       height:"100%",
+                       width:"100%",
+                       margin:"20px",
+                       padding:"20px"
+                    }}
+                >
+                    <Switch>
+                        <Route path="/home" component={Home} />
+                        <Route path="/dynamic-list" component={DynamicManage} />
+                        <Route path="/user-info" component={UserInfo} />
+                        <Redirect from="/" to="/home" exact />
+                        <Route path="*" component={NoPromission} />
+                    </Switch>
+                </Content>
+                <Footer
+                    style={{
+                        textAlign: 'center',
+                    }}
+                >
+                    Ant Design ©2018 Created by Ant UED
+                </Footer>
             </Layout>
-        )
-    }
+        </Layout>
+    )
+
 }

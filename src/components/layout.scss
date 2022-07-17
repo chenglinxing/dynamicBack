@@ -1,0 +1,46 @@
+$fontSize:24px;
+$fontColor:#fff;
+
+
+.site-layout-background {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+
+    .collapse,
+    .info {
+        color: $fontColor;
+    }
+
+    .collapse {
+        font-size: $fontSize;
+        cursor: pointer;
+    }
+
+    .info span {
+        margin: 0 10px;
+    }
+}
+
+.Sider {
+    .logo {
+        padding: 10px 0px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-link {
+        width: 40%;
+        font-size: $fontSize;
+        color: $fontColor;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        span {
+            margin-left: 10px;
+
+        }
+    }
+}

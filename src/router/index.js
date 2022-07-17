@@ -1,55 +1,24 @@
-import { lazy, Suspense } from "react"
+import React from 'react';
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom"
+import DyLayout from '../components/layout';
+import Login from '../pages/login/login';
 
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from '@ant-design/icons';
+const IndexRouter = () => {
+    return (
+        <div>
+            <HashRouter>
+                <Switch>
+                    <Route path="/login" component={Login} />
+                    {/* <Route path="/" component={Home} /> */}
 
+                    <Route path="/" render={() => 
+                        localStorage.getItem("token") ? <DyLayout /> : <Redirect to="/login" />
+                    } />
 
-
-
-
-function getItem(label, key, icon, children) {
-    return {
-        key,
-        icon,
-        children,
-        label,
-    };
+                </Switch>
+            </HashRouter>
+        </div>
+    );
 }
 
-const items = [
-    getItem('首页', '/home', <PieChartOutlined />),
-    getItem('动态管理', '/dynamic', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-        getItem('Alex', '5'),
-    ]),
-];
-
-//添加路由的懒加载
-const Home = lazy(() => import("../pages/home"))
-const DynamicManage = lazy(() => import("../pages/dynamicManage"))
-
-// 实现懒加载的用Suspense包裹 定义函数
-const lazyLoad = (children) => {
-    return <Suspense fallback={<h1>Loading...</h1>}>
-        {children}
-    </Suspense>
-}
-const menus = [
-    {
-        path: "/",
-        component: Home
-    }, {
-        path: "/dynamic",
-        component: DynamicManage
-    }
-
-]
-
-export { items, menus } 
+export default IndexRouter;

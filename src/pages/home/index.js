@@ -1,9 +1,9 @@
-import React, { memo } from 'react'
+import React from 'react'
 
-const Home = memo(() => {
-  return (
-    <div>Home</div>
-  )
-})
-
-export default Home
+export default function TestIndex() {
+    return (
+        <div>
+            home
+        </div>
+    )
+}

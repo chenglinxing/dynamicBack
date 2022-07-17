@@ -1,3 +1,3 @@
-import { request } from "./request"
+import service from "./request"
 
-export default request
+export default service
