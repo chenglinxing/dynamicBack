@@ -25,10 +25,8 @@ export default function DyLayout() {
                 <Content
                     style={{
                        background:"#fff",
-                       height:"100%",
-                       width:"100%",
-                       margin:"20px",
-                       padding:"20px"
+                       padding:"20px",
+                       margin:"20px"
                     }}
                 >
                     <Switch>

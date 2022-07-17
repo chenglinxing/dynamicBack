@@ -68,8 +68,11 @@ const DynamicManage = memo(() => {
   //获取动态列表
   async function getList() {
     const data = await getDynamicList(0,10)
-    setTableData([...tableData,...data])
-    setTotal(tableData.length)
+    if(data){
+      setTableData([...tableData,...data])
+      setTotal(tableData.length)
+    }
+    
   }
   useEffect(() => {
     getList()
